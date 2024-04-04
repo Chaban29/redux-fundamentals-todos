@@ -1,20 +1,18 @@
 import { FC, useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../rootReducer/rootReducer';
+import { useDispatch } from 'react-redux';
 import {
   addedNewCustomerAction,
   deletedCustomerAction,
 } from '../../features/customers/customersSlice';
 import { getUsersFromServerAction } from '../../features/asyncActions/usersAsyncAction';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 let nextId: number = 1;
 
 export const Users: FC = () => {
   const [customerName, setCustomerName] = useState<string>('');
   const dispatch = useDispatch();
-  const customers = useSelector(
-    (state: RootState) => state.customers.customers
-  );
+  const customers = useTypedSelector((state) => state.customers.customers);
 
   const handleDeleteCustomer = (customerId: number) => {
     dispatch(deletedCustomerAction(customerId));

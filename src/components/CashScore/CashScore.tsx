@@ -1,16 +1,16 @@
 import { FC, Fragment, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../rootReducer/rootReducer';
+import { useDispatch } from 'react-redux';
 import {
   addedCashAction,
   divideCashAction,
   getCashAction,
   multipleCashAction,
 } from '../../features/cash/cashSlice';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export const CashScore: FC = () => {
   const dispatch = useDispatch();
-  const cash = useSelector((state: RootState) => state.cash.cash);
+  const { cash } = useTypedSelector((state) => state.cash);
 
   const handleAddedCash = useCallback(() => {
     dispatch(addedCashAction(200));

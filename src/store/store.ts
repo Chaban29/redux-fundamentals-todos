@@ -7,3 +7,5 @@ export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk))
 );
+
+console.log('Initial state: ', store.getState());
