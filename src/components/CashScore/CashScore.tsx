@@ -35,7 +35,7 @@ export const CashScore: FC = () => {
 
   return (
     <Fragment>
-      <h3>{cash}</h3>
+      <h3>Cash Balance: {cash}</h3>
       <button type='button' onClick={handleAddedCash}>
         Add cash
       </button>
