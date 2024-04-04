@@ -13,6 +13,9 @@ export type TypeTodosActions =
   | { type: TodoTypes.TOGGLED; payload: number }
   | { type: TodoTypes.SELECTED; payload: { todoId: number; color: string } }
   | { type: TodoTypes.DELETED; payload: number }
-  | { type: TodoTypes.COMPLETED }
-  | { type: TodoTypes.STATUSFILTERCHANGED }
-  | { type: TodoTypes.COLORSFILTERCHANGED };
+  | { type: TodoTypes.COMPLETED; payload: boolean }
+  | { type: TodoTypes.STATUSFILTERCHANGED; payload: string }
+  | {
+      type: TodoTypes.COLORSFILTERCHANGED;
+      payload: { color: string; changeType: string };
+    };

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { appReducer } from '../appReducer/appReducer';
+import { todosReducer } from '../features/todos/todoSlice';
+import { filterReducer } from '../features/filters/filtersSlice';
 
 export const rootReducer = combineReducers({
-  todos: appReducer,
+  todos: todosReducer,
+  filters: filterReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
